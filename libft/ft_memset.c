@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 23:05:26 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/18 16:54:15 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/24 21:15:25 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,12 @@ void	*ft_memset(void *b, int c, size_t len)
 		i++;
 	}
 	return (b);
+}
+
+int main()
+{
+	int b = 42 ;
+	int *a = &b;
+	ft_memset(a, 1337, 1);
+	printf("%s\n", b);
 }

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 13:20:33 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/17 17:57:52 by stagma           ###   ########.fr       */
+/*   Created: 2025/10/24 18:26:13 by stagma            #+#    #+#             */
+/*   Updated: 2025/10/24 18:31:19 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	printf("%d\n", ft_strncmp("hello", "hellyeah", 5));
-	return 0 ;
+	write(fd, &c, 1);
 }
