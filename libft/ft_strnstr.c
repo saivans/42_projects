@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:47:00 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/17 20:18:13 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:06:13 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	if (needle[0] == '\0')
-		return (haystack);
+		return ((char *)haystack);
 	j = 0 ;
 	while (haystack[j] && j < len)
 	{

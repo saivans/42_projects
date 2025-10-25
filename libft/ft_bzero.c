@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 23:34:44 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/15 23:41:29 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:08:13 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*str;
 	size_t			i;
 
-	str = (unsigned char)s ;
+	str = (unsigned char *)s ;
 	i = 0 ;
 	while (i < n)
 	{

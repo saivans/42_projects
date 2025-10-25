@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 21:52:38 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/24 17:38:16 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:08:48 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char	*ft_itoa(int n)
 	unsigned int		nb;
 
 	str = ft_allocate(n, &divisor);
-	printf("%d\n", divisor);
 	if (n >= 0)
 	{
 		i = 0 ;

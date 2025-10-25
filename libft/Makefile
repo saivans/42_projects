@@ -47,7 +47,7 @@ FLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-.c.o:
+.c.o: libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

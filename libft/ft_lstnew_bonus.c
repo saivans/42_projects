@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 23:05:26 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/24 21:38:22 by stagma           ###   ########.fr       */
+/*   Created: 2025/10/25 16:19:00 by stagma            #+#    #+#             */
+/*   Updated: 2025/10/25 17:24:36 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*ptr;
 
-	i = 0 ;
-	while (i < len)
-	{
-		*((unsigned char *)b + i) = (unsigned char)c ;
-		i++;
-	}
-	return (b);
+	ptr = malloc(sizeof(t_list));
+	if (!ptr)
+		return (0);
+	(*ptr).content = content ;
+	(*ptr).next = 0 ;
+	return (ptr);
 }

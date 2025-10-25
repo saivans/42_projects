@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 23:05:26 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/24 21:38:22 by stagma           ###   ########.fr       */
+/*   Created: 2025/10/25 18:55:39 by stagma            #+#    #+#             */
+/*   Updated: 2025/10/25 20:27:18 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
+	t_list	*ptr;
+	t_list	*temp;
 
-	i = 0 ;
-	while (i < len)
+	if (!lst)
+		return (0);
+	ptr = lst ;
+	while (ptr != 0)
 	{
-		*((unsigned char *)b + i) = (unsigned char)c ;
-		i++;
+		temp = ptr ;
+		ptr = ptr -> next ;
 	}
-	return (b);
+	return (temp);
 }

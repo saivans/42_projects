@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:19:33 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/16 21:26:30 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/25 16:07:39 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == a)
-			return (s + i);
+			return ((char *)(s + i));
 		i++;
 	}
 	if (a == '\0')
-		return (s + i);
+		return ((char *)(s + i));
 	return (0);
 }
