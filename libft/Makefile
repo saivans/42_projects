@@ -39,16 +39,19 @@ SRCS_B = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c\
 	     ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c\
 		 ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c\
 
+#Objects names are just .o instead of .c
 OBJS = $(SRCS:.c=.o)
 
 #Adding a place for bonus objects...
 OBJS_B = $(SRCS_B:.c=.o)
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+#ar stands for "archive", r is "replace", c is "create" and s is "write an index" --> "symbol table"
 AR = ar rcs
 RM = rm -f
 
+# "libft.h" here is listed as a dependency.
 .c.o: libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -57,15 +60,22 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-bonus: $(NAME) $(OBJS_B)
+#Building bonus only one time... .fichier is a marker file it... everytime we run make bonus...
+#it creates or updates the timestamp of .fichier to mark that "bonus part is done"...
+.fichier: $(NAME) $(OBJS_B)
 	$(AR) $(NAME) $(OBJS_B)
+	@touch .fichier
+
+bonus: .fichier
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_B) .fichier
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
+#Checks if the program already exists and skip building it if so.
+#If there is a file named the same as the rule and it can distinguish between the two...
 .PHONY: all clean fclean re bonus

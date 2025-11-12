@@ -6,17 +6,17 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:55:10 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/24 18:55:50 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/09 18:19:56 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 
-	if (!s || !fd)
+	if (!s)
 		return ;
 	i = 0 ;
 	while (s[i])

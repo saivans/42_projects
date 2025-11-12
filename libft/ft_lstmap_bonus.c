@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:18:07 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/31 16:36:02 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/01 20:25:33 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,23 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*head;
-	t_list	*tail;
+	t_list	*content;
 	t_list	*new;
 
-	head = 0 ;
-	tail = 0 ;
+	head = NULL ;
+	if (!f || !del || !lst)
+		return (NULL);
 	while (lst)
 	{
-		new = ft_lstnew(f(lst->content));
+		content = f(lst->content);
+		new = ft_lstnew(content);
 		if (!new)
 		{
+			del(content);
 			ft_lstclear(&head, del);
-			return (0);
+			return (NULL);
 		}
-		if (!head)
-			head = new ;
-		else
-			tail->next = new ;
-		tail = new ;
+		ft_lstadd_back(&head, new);
 		lst = lst->next ;
 	}
 	return (head);

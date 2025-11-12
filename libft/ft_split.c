@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:49:07 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/23 20:01:50 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/05 18:42:02 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ static	void	ft_cpypst(char *str, const char *s, char c, size_t	index)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	size_t	nb_words;
 	size_t	i;
 
-	nb_words = ft_countwords(s, c);
-	ptr = malloc((nb_words + 1) * sizeof(char *));
+	if (s == NULL)
+		return (NULL);
+	ptr = malloc((ft_countwords(s, c) + 1) * sizeof(char *));
 	if (!ptr)
 		return (0);
 	i = 0 ;
-	while (i < nb_words)
+	while (i < ft_countwords(s, c))
 	{
 		ptr[i] = ft_calloc(ft_wordlen(s, c, i) + 1, sizeof(char));
 		if (!ptr[i])
@@ -106,3 +106,15 @@ char	**ft_split(char const *s, char c)
 	ptr[i] = 0 ;
 	return (ptr);
 }
+
+// int main()
+// {
+// 	char **p = ft_split(NULL, ' ');
+// 	if(!p)
+// 		printf("returned null");
+// 	// printf("%c\n", p);
+// 	// printf("%s\n", p[1]);
+// 	// printf("%s\n", p[2]);
+// 	// printf("%s\n", p[3]);
+// 	// printf("%s\n", p[5]);
+// }

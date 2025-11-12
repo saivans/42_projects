@@ -6,11 +6,11 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 20:39:16 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/27 18:31:28 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/09 19:58:13 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_flag(unsigned long int nb, int sign, int digit)
+static int	ft_flag(unsigned long int nb, int sign, int digit)
 {
 	if (sign == 1)
 	{

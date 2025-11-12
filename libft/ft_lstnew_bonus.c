@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 16:19:00 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/25 17:24:36 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/31 21:39:06 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_list	*ft_lstnew(void *content)
 
 	ptr = malloc(sizeof(t_list));
 	if (!ptr)
-		return (0);
-	(*ptr).content = content ;
-	(*ptr).next = 0 ;
+		return (NULL);
+	ptr->content = content ;
+	ptr->next = NULL ;
 	return (ptr);
 }

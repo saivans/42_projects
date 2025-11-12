@@ -6,7 +6,7 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:53:00 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/24 18:54:42 by stagma           ###   ########.fr       */
+/*   Updated: 2025/10/31 21:26:24 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
 
-	if (!s || !fd)
+	if (!s)
 		return ;
 	i = 0 ;
 	while (s[i])

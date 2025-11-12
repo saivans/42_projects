@@ -6,16 +6,13 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:13:55 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/16 21:17:25 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:10:55 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	unsigned char	b;
-
-	b = (unsigned char)c ;
-	if (b >= 'a' && b <= 'z')
-		b -= 32 ;
-	return ((int)b);
+	if (c >= 'a' && c <= 'z')
+		c -= 32 ;
+	return (c);
 }

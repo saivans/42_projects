@@ -6,77 +6,59 @@
 /*   By: stagma <stagma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 21:52:38 by stagma            #+#    #+#             */
-/*   Updated: 2025/10/25 16:08:48 by stagma           ###   ########.fr       */
+/*   Updated: 2025/11/01 20:22:11 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_findiv(int n, size_t *ndigits)
+static int	int_len(int n)
 {
-	unsigned int	divisor;
-	unsigned int	nb;
+	int	len;
 
-	if (n >= 0)
-		nb = n ;
-	else
-		nb = -n ;
-	divisor = 1 ;
-	*ndigits = 1 ;
-	while (nb / divisor >= 10)
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		len++;
+	while (n)
 	{
-		(*ndigits)++;
-		divisor *= 10 ;
+		n /= 10;
+		len++;
 	}
-	return (divisor);
-}
-
-static char	*ft_allocate(int n, unsigned int *divisor)
-{
-	size_t			i;
-	char			*str;
-
-	i = 0 ;
-	*divisor = ft_findiv(n, &i);
-	if (n >= 0)
-	{
-		str = ft_calloc(i + 1, sizeof(char));
-		if (!str)
-			return (0);
-	}
-	else
-	{
-		str = ft_calloc(i + 2, sizeof(char));
-		if (!str)
-			return (0);
-		str[0] = '-' ;
-	}
-	return (str);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char				*str;
-	size_t				i;
-	unsigned int		divisor;
-	unsigned int		nb;
+	int		ncpy;
+	int		i;
+	char	*str;
 
-	str = ft_allocate(n, &divisor);
-	if (n >= 0)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	ncpy = n;
+	if (n < 0)
+		ncpy = -n;
+	i = int_len(n);
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	str[i] = '\0';
+	i--;
+	if (ncpy == 0)
+		str[i] = '0';
+	while (ncpy > 0)
 	{
-		i = 0 ;
-		nb = n ;
+		str[i--] = (ncpy % 10) + '0';
+		ncpy /= 10;
 	}
-	else
-	{
-		i = 1 ;
-		nb = -n ;
-	}
-	while (divisor >= 1)
-	{
-		str[i++] = nb / divisor + '0' ;
-		nb = nb % divisor ;
-		divisor /= 10 ;
-	}
+	if (n < 0)
+		str[i] = '-';
 	return (str);
 }
+
+// int main()
+// {
+// 	printf("%s\n", ft_itoa(-2147483648));
+// }
