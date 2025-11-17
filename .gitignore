@@ -1,0 +1,21 @@
+# Executables
+a.out
+*.exe
+
+# Object files
+*.o
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# Debug files
+*.dSYM/
+
+# OS files
+.DS_Store
+
+# Test files
+test
+tester
